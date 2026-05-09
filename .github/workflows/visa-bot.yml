@@ -2,7 +2,7 @@ name: Visa Bot Cron
 
 on:
   schedule:
-    - cron: "30 5 * * *"   # 11 AM IST
+    - cron: "30 5 * * *"
   workflow_dispatch:
 
 jobs:
@@ -20,6 +20,18 @@ jobs:
 
       - name: Install dependencies
         run: npm install
+
+      - name: Debug env
+        run: |
+          echo "EMAIL=$EMAIL"
+          echo "MY_IRL=$MY_IRL"
+          echo "PAGE_URL=$PAGE_URL"
+        env:
+          EMAIL: ${{ secrets.EMAIL }}
+          PASSWORD: ${{ secrets.PASSWORD }}
+          MY_IRL: ${{ secrets.MY_IRL }}
+          TO_EMAIL: ${{ secrets.TO_EMAIL }}
+          PAGE_URL: ${{ secrets.PAGE_URL }}
 
       - name: Run script
         run: node index.js
