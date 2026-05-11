@@ -2,7 +2,7 @@ name: Visa Bot Cron
 
 on:
   schedule:
-    - cron: "30 5 * * *"
+    - cron: "17 5 * * *"
   workflow_dispatch:
 
 jobs:
