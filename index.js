@@ -35,7 +35,7 @@ async function getLatestODS() {
     if (href && href.includes("NDVO") && href.endsWith(".ods")) {
       link = href.startsWith("http")
         ? href
-        : new URL(href, baseUrl).href; // 🔥 SAFE FIX
+        : new URL(href, baseUrl).href; 
     }
   });
 
@@ -80,7 +80,6 @@ async function checkIRL() {
   const appNumber = String(row[0] || "").trim();
   const decision = String(row[1] || "").trim();
 
-  // skip headers / junk rows
   if (
     appNumber.toLowerCase().includes("application") ||
     appNumber.toLowerCase().includes("visa") ||
